@@ -13,6 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
+            "baseHref": "/DP-Angular-DP/",
             "outputPath": "dist/dp-angular-fe",
             "index": "src/index.html",
             "browser": "src/main.ts",
