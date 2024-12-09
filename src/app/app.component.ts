@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import {SideNavComponent} from './pages/nav-bar/side-nav/side-nav.component';
+import {SideNavComponent} from './pages/home/side-nav/side-nav.component';
 import {NgClass} from '@angular/common';
 
 @Component({

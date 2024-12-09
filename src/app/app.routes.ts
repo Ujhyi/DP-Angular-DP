@@ -15,7 +15,7 @@ import {DevicesManagementComponent} from './pages/functionality/devices-manageme
 
 export const routes: Routes = [
 
-  { path: '', redirectTo: 'get-monitors', pathMatch: 'full' },
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
 
   // FUNCTIONALITY
   { path: 'get-monitors', component: GetMonitorsComponent },
