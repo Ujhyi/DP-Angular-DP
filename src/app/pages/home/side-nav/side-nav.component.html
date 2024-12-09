@@ -10,7 +10,7 @@
       <i class="fas" [ngClass]="{'fa-chevron-left': !isCollapsed, 'fa-chevron-right': isCollapsed}"></i>
     </button>
   </div>
-  <nav class="flex flex-col flex-grow">
+  <nav class="flex flex-col flex-grow overflow-y-auto mt-20 ">
     <!-- Divider Line -->
     <hr class="border-t border-gray-700 my-2">
     <!-- Conditional Display for FUNCTIONS text -->
@@ -73,7 +73,7 @@
       <span *ngIf="!isCollapsed">Num + Tech</span>
     </a>
     <!-- Divider Line -->
-    <hr class="border-t border-gray-700 my-2 mt-20">
+    <hr class="border-t border-gray-700 my-2">
     <!-- Conditional Display for FUNCTIONS text -->
     <p *ngIf="!isCollapsed" class="text-gray-400 text-xs px-4">REVENUE</p>
     <p *ngIf="isCollapsed" class="text-gray-400 text-xs px-4 text-center">REVEN</p>
