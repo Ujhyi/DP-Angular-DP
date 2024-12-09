@@ -32,28 +32,13 @@ export class MasterService {
 
 
 
-  // APACHE2
-
-  /*
-
-  private monitorUrl = 'http://20.64.238.96/MyASMXService/WebService.asmx/GetMonitors';
-  private televisionsUrl = 'http://20.64.238.96/MyASMXService/WebService.asmx/GetTelevision';
-  private projectorsUrl = 'http://20.64.238.96/MyASMXService/WebService.asmx/GetProjector';
-  private sellDeviceUrl = 'http://20.64.238.96/MyASMXService/WebService.asmx/SellProducts';
-  private deleteDeviceUrl = 'http://20.64.238.96/MyASMXService/WebService.asmx/DeleteProduct';
-
-
-*/
-
-
   constructor(private http: HttpClient) { }
 
 
 
 
   // LOCALHOST
-
-
+  
 
   getMonitors(): Observable<any> { return this.http.post(this.monitorUrl, null, { responseType: 'text' }); }
   getTelevisions(): Observable<any> { return this.http.post(this.televisionsUrl, null, { responseType: 'text' }); }
@@ -111,38 +96,5 @@ export class MasterService {
     return this.http.post(this.countDeviceByDateDetailTech2, body, { headers, responseType: 'text' });
   }
 
-
-
-
-  // APACHE2
-
-  /*
-
-  getMonitors(): Observable<any> { return this.http.post(this.monitorUrl, null, { responseType: 'text' }); }
-  getTelevisions(): Observable<any> { return this.http.post(this.televisionsUrl, null, { responseType: 'text' }); }
-  getProjectors(): Observable<any> { return this.http.post(this.projectorsUrl, null, { responseType: 'text' }); }
-
-  sellDevice(productType: string, id: string): Observable<any> {
-    const body = new URLSearchParams();
-    body.set('productType', productType);
-    body.set('id', id);
-
-    return this.http.post(this.sellDeviceUrl, body.toString(), {
-      headers: new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')
-    });
-  }
-
-  deleteProduct(productType: string, id: string): Observable<any> {
-    const body = new URLSearchParams();
-    body.set('productType', productType);
-    body.set('id', id);
-
-    return this.http.post(this.deleteDeviceUrl, body.toString(), {
-      headers: new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')
-    });
-  }
-
-
-   */
 
 }
