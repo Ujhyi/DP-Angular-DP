@@ -12,6 +12,7 @@ import {SalesLogsComponent} from './pages/data-manager/sales-logs/sales-logs.com
 import {SalesRevenueComponent} from './pages/data-manager/sales-revenue/sales-revenue.component';
 import {DevicesComparisionComponent} from './pages/functionality/devices-comparision/devices-comparision.component';
 import {DevicesManagementComponent} from './pages/functionality/devices-management/devices-management.component';
+import {HomeComponent} from './pages/home/home/home.component';
 
 export const routes: Routes = [
 
@@ -25,6 +26,7 @@ export const routes: Routes = [
   { path: 'devices-edit', component: DevicesEditComponent},
   { path: 'devices-management', component: DevicesManagementComponent},
   { path: 'devices-comp', component: DevicesComparisionComponent},
+  { path: 'home', component: HomeComponent},
 
   // DATA-MANAGER
   { path: 'number-of-devices', component: NumberOfDevicesComponent},
