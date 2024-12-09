@@ -8,21 +8,21 @@ import {Observable} from 'rxjs';
 export class MasterService {
 
 
-  private monitorUrl = 'http://20.64.238.96/MyASMXService/WebService.asmx/GetMonitors';
-  private televisionsUrl = 'http://20.64.238.96/MyASMXService/WebService.asmx/GetTelevision';
-  private projectorsUrl = 'http://20.64.238.96/MyASMXService/WebService.asmx/GetProjector';
-  private sellDeviceUrl = 'http://20.64.238.96/MyASMXService/WebService.asmx/SellProducts';
-  private deleteDeviceUrl = 'http://20.64.238.96/MyASMXService/WebService.asmx/DeleteProduct';
-  private salesLogsUrl = 'http://20.64.238.96/MyASMXService/WebService.asmx/DisplaySalesLogs';
-  private addNewDeviceUrl = 'http://20.64.238.96/MyASMXService/WebService.asmx/AddProduct';
-  private filterDeviceUrl = 'http://20.64.238.96/MyASMXService/WebService.asmx/GetFilteredProducts';
-  private salesRevenueUrl = 'http://20.64.238.96/MyASMXService/WebService.asmx/SalesRevenue';
-  private countDeviceByDateUrl = 'http://20.64.238.96/MyASMXService/WebService.asmx/GetStockInformation_StartDateToEndDate';
-  private countDevicesUrl = 'http://20.64.238.96/MyASMXService/WebService.asmx/CountDevices';
-  private countDeviceByDateDetailTech1 = 'http://20.64.238.96/MyASMXService/WebService.asmx/GetStockInformation_StartDateToEndDate_1';
-  private countDeviceByDateDetailTech2 = 'http://20.64.238.96/MyASMXService/WebService.asmx/GetStockInformation_StartDateToEndDate_2';
-  private salesRevenueByDateUrl = 'http://20.64.238.96/MyASMXService/WebService.asmx/CalculateRevenueByDate';
-  private editDeviceUrl = 'http://20.64.238.96/MyASMXService/WebService.asmx/EditDevice';
+  private monitorUrl = 'https://20.64.238.96/MyASMXService/WebService.asmx/GetMonitors';
+  private televisionsUrl = 'https://20.64.238.96/MyASMXService/WebService.asmx/GetTelevision';
+  private projectorsUrl = 'https://20.64.238.96/MyASMXService/WebService.asmx/GetProjector';
+  private sellDeviceUrl = 'https://20.64.238.96/MyASMXService/WebService.asmx/SellProducts';
+  private deleteDeviceUrl = 'https://20.64.238.96/MyASMXService/WebService.asmx/DeleteProduct';
+  private salesLogsUrl = 'https://20.64.238.96/MyASMXService/WebService.asmx/DisplaySalesLogs';
+  private addNewDeviceUrl = 'https://20.64.238.96/MyASMXService/WebService.asmx/AddProduct';
+  private filterDeviceUrl = 'https://20.64.238.96/MyASMXService/WebService.asmx/GetFilteredProducts';
+  private salesRevenueUrl = 'https://20.64.238.96/MyASMXService/WebService.asmx/SalesRevenue';
+  private countDeviceByDateUrl = 'https://20.64.238.96/MyASMXService/WebService.asmx/GetStockInformation_StartDateToEndDate';
+  private countDevicesUrl = 'https://20.64.238.96/MyASMXService/WebService.asmx/CountDevices';
+  private countDeviceByDateDetailTech1 = 'https://20.64.238.96/MyASMXService/WebService.asmx/GetStockInformation_StartDateToEndDate_1';
+  private countDeviceByDateDetailTech2 = 'https://20.64.238.96/MyASMXService/WebService.asmx/GetStockInformation_StartDateToEndDate_2';
+  private salesRevenueByDateUrl = 'https://20.64.238.96/MyASMXService/WebService.asmx/CalculateRevenueByDate';
+  private editDeviceUrl = 'https://20.64.238.96/MyASMXService/WebService.asmx/EditDevice';
 
 
 
