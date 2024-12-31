@@ -12,12 +12,22 @@ import {SalesLogsComponent} from './pages/data-manager/sales-logs/sales-logs.com
 import {SalesRevenueComponent} from './pages/data-manager/sales-revenue/sales-revenue.component';
 import {DevicesComparisionComponent} from './pages/functionality/devices-comparision/devices-comparision.component';
 import {DevicesManagementComponent} from './pages/functionality/devices-management/devices-management.component';
+import {HomeComponent} from './pages/home/home/home.component';
+import {RegisterComponent} from './pages/auth/register/register.component';
+import {LoginComponent} from './pages/auth/login/login.component';
+import {authGuard} from './pages/auth/auth.guard';
+import {ChangePasswordComponent} from './pages/auth/change-password/change-password.component';
 
 export const routes: Routes = [
 
-  { path: '', redirectTo: 'get-monitors', pathMatch: 'full' },
-
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
   // FUNCTIONALITY
+  { path: 'home', component: HomeComponent, canActivate: [authGuard]},
+  { path: 'get-monitors', component: GetMonitorsComponent, canActivate: [authGuard] },
+
+  { path: 'change-password', component: ChangePasswordComponent},
+  { path: 'login', component: LoginComponent},
+  { path: 'register', component: RegisterComponent},
   { path: 'get-monitors', component: GetMonitorsComponent },
   { path: 'get-projectors', component: GetProjectorsComponent},
   { path: 'get-televisions', component: GetTelevisionsComponent},

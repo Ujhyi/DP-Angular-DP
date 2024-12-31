@@ -22,8 +22,10 @@ export class NumberOfDevicesComponent implements OnInit{
   stockData: any[] = [];
   filteredStockData: any[] = [];
   totalRemainingStocks: any = {};
-  summaryData: any = {}; // New property to hold the summary
+  summaryData: any = {};
   searchTerm: string = '';
+
+  showSummary = false;
 
   masterSrv = inject(MasterService);
 
@@ -228,4 +230,10 @@ export class NumberOfDevicesComponent implements OnInit{
     const [year, month, day] = date.split('-');
     return `${month}-${day}-${year}`;
   }
+
+  toggleSummaryVisibility(): void {
+    this.showSummary = !this.showSummary;
+  }
+
+
 }

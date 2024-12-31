@@ -1,0 +1,89 @@
+<div class="bg-gray-900 w-full h-20 fixed top-0 flex items-center" style="margin-left: -16px; justify-content: start;">
+  <h1 class="text-2xl font-bold text-white ml-9 flex items-center">
+    <i class="bi bi-brightness-high-fill mr-4"></i>Welcome</h1>
+  <div class="fixed top-5.5 right-5 sm:right-25 md:right-20 lg:right-12.5 flex gap-4">
+    <button class="bg-gray-800 text-white rounded-lg px-3 py-2 focus:outline-none focus:ring focus:ring-blue-500 w-27 sm:w-48 md:w-64 lg:w-70" (click)="goToRegister()">Add New User</button>
+    <button class="bg-gray-800 text-white rounded-lg px-3 py-2 focus:outline-none focus:ring focus:ring-blue-500 w-27 sm:w-48 md:w-64 lg:w-70" *ngIf="localStorage.getItem('isLoggedIn')" (click)="logout()">Logout</button>
+  </div>
+</div>
+
+<div class="flex flex-col items-center lg:items-start lg:justify-center px-4 mt-20 w-full">
+  <div class="w-full lg:10">
+    <div class="bg-white shadow-xl rounded-lg px-8 py-6">
+      <main class="flex-grow container mx-auto px-4 py-8">
+        <div id="welcome" class="flex flex-col md:flex-row md:space-y-0 space-y-6">
+          <div class="md:w-1/2 md:pr-4 md:border-r border-gray-300">
+            <h2 class="text-4xl font-bold mb-4">Welcome to the Display Devices Info Service</h2>
+            <p class="text-lg mb-6">
+              Our ASP.NET XML web service provides sorted information about display devices from our electronic store.
+            </p>
+          </div>
+          <div class="md:w-1/2 md:pl-4">
+            <h2 class="text-4xl font-bold mb-4">Vitajte v službe Display Devices Info Service</h2>
+            <p class="text-lg mb-6">
+              Naša webová služba ASP.NET XML poskytuje zoradené informácie o zobrazovacích zariadeniach z nášho elektronického obchodu.
+            </p>
+          </div>
+        </div>
+
+        <div id="about" class="mt-12 flex flex-col md:flex-row md:space-y-0 space-y-6">
+          <div class="md:w-1/2 md:pr-4 md:border-r border-gray-300">
+            <h3 class="text-2xl font-bold mb-4">About the Project</h3>
+            <p class="text-lg">
+              This web service is designed to deliver accurate and sorted data about display devices available in our electronic store. By leveraging ASP.NET and XML, the service ensures efficient data handling and seamless integration with client applications.
+            </p>
+          </div>
+          <div class="md:w-1/2 md:pl-4">
+            <h3 class="text-2xl font-bold mb-4">O projekte</h3>
+            <p class="text-lg">
+              Táto webová služba je navrhnutá na poskytovanie presných a zoradených údajov o zobrazovacích zariadeniach dostupných v našom elektronickom obchode. Využitím ASP.NET a XML služba zabezpečuje efektívnu správu údajov a bezproblémovú integráciu s klientskými aplikáciami.
+            </p>
+          </div>
+        </div>
+
+        <div id="features" class="mt-12 flex flex-col md:flex-row md:space-y-0 space-y-6">
+          <div class="md:w-1/2 md:pr-4 md:border-r border-gray-300">
+            <h3 class="text-2xl font-bold mb-4">Key Features</h3>
+            <ul class="list-disc list-inside text-lg">
+              <li>Analysis of XML web services for monitoring display device parameters (TVs, monitors, projectors) in an e-commerce system.</li>
+              <li>Comparison with other tracking methods for display device parameters.</li>
+              <li>Development of an ASP .NET XML web service to provide organized data based on selected criteria.</li>
+              <li>Total counts of different display device types (TVs, monitors, projectors) at the start and end of the monitored period.</li>
+              <li>Lists and basic details of display devices by manufacturer, brand, and category.</li>
+              <li>Other relevant parameters for the monitored display devices.</li>
+            </ul>
+          </div>
+          <div class="md:w-1/2 md:pl-4">
+            <h3 class="text-2xl font-bold mb-4">Kľúčové vlastnosti</h3>
+            <ul class="list-disc list-inside text-lg">
+              <li>Analýza XML webových služieb na sledovanie parametrov zobrazovacích zariadení (televízory, monitory, projektory) v informačnom systéme elektronického obchodu.</li>
+              <li>Porovnanie s inými metódami sledovania parametrov zobrazovacích zariadení.</li>
+              <li>Vývoj ASP .NET XML webovej služby, ktorá poskytuje usporiadané údaje na základe vybraných kritérií.</li>
+              <li>Celkový počet rôznych typov zobrazovacích zariadení (televízory, monitory, projektory) na začiatku a konci sledovaného obdobia.</li>
+              <li>Zoznamy a základné údaje o zobrazovacích zariadeniach podľa výrobcu, značky a kategórie.</li>
+              <li>Iné relevantné parametre pre sledované zobrazovacie zariadenia.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div id="contact" class="mt-12 flex flex-col md:flex-row md:space-y-0 space-y-6">
+          <div class="md:w-1/2 md:pr-4 md:border-r border-gray-300">
+            <h3 class="text-2xl font-bold mb-4">Get in Touch</h3>
+            <p class="text-lg">
+              Have any questions ? Text me at <a href="mailto:support@electronicstore.com" class="text-blue-600 hover:underline">dujhelyi1&#64;student.euba.sk</a>.
+            </p>
+          </div>
+          <div class="md:w-1/2 md:pl-4">
+            <h3 class="text-2xl font-bold mb-4">Kontakt</h3>
+            <p class="text-lg">
+              Máte otázky ? Kontaktujte ma na <a href="mailto:support@electronicstore.com" class="text-blue-600 hover:underline">dujhelyi1&#64;student.euba.sk</a>.
+            </p>
+          </div>
+
+        </div>
+      </main>
+    </div>
+  </div>
+</div>
+
+

@@ -1,0 +1,14 @@
+/* Hide the side navigation completely when on the login page */
+.no-sidenav app-side-nav {
+  display: none !important;   /* Prevent it from being displayed */
+}
+
+/* Remove shadow or any other effects */
+.no-sidenav app-side-nav {
+  box-shadow: none !important; /* Remove shadow */
+}
+
+/* Optional: Adjust layout spacing for login page */
+.no-sidenav .flex-1 {
+  margin-left: 0 !important;  /* Ensure that the content is aligned properly */
+}

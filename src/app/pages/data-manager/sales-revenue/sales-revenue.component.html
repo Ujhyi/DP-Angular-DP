@@ -45,92 +45,87 @@
 
 
 
-<div class="flex flex-col items-center lg:items-start lg:justify-center px-4 mt-10 w-full">
-  <div class="w-full lg:10 bg-white shadow-xl rounded-lg px-8 py-6">
-    <table class="w-full border border-gray-300 rounded-lg overflow-hidden">
-      <thead class="bg-blue-100 text-blue-700 font-semibold uppercase text-sm">
-      <tr>
-        <th class="py-3 px-5 text-center" colspan="6">Sales Revenue Summary By Date (select start date & end date)</th>
-      </tr>
-      </thead>
+  <div class="flex flex-col items-center lg:items-start lg:justify-center px-4 mt-10 w-full">
+    <div class="w-full lg:10 bg-white shadow-xl rounded-lg px-8 py-6">
+      <table class="w-full border border-gray-300 rounded-lg overflow-hidden">
 
-      <thead class="bg-gray-700 text-white font-semibold uppercase text-sm">
-      <tr>
-        <th class="py-3 px-6 text-left"></th>
+        <!-- Light Blue Header -->
+        <thead class="bg-blue-100 text-blue-700 font-semibold uppercase text-sm">
+        <tr>
+          <th class="py-3 px-5 text-left" colspan="2">Sales Revenue Summary By Date (select start date & end date)</th>
+          <th class="py-3 px-3 text-left">
+            <div class="flex items-center">
+              <span class="text-xs font-semibold mr-1">Start Date:</span>
+              <input
+                type="date"
+                id="startDate"
+                [(ngModel)]="startDate"
+                name="startDate"
+                (change)="onDateChange()"
+                required
+                class="w-29 px-1 py-1 text-sm text-gray-900 border rounded-lg focus:outline-none focus:ring focus:ring-blue-300"
+              />
+            </div>
+          </th>
+          <th class="py-3 px-3 text-left">
+            <div class="flex items-center">
+              <span class="text-xs font-semibold mr-1">End Date:</span>
+              <input
+                type="date"
+                id="endDate"
+                [(ngModel)]="endDate"
+                name="endDate"
+                (change)="onDateChange()"
+                required
+                class="w-29 px-1 py-1 text-sm text-gray-900 border rounded-lg focus:outline-none focus:ring focus:ring-blue-300"
+              />
+            </div>
+          </th>
+          <th colspan="2" class="py-3 px-3 text-right">
+            <div class="flex items-center justify-end">
+              <span class="text-xs font-semibold mr-2">Search by ID:</span>
+              <input
+                type="text"
+                [(ngModel)]="searchId"
+                class="text-gray-900 rounded-lg px-3 py-2 focus:outline-none focus:ring focus:ring-blue-500 w-32 sm:w-48"
+                placeholder="Search by ID"
+              />
+            </div>
+          </th>
+        </tr>
+        </thead>
 
-        <!-- Start Date Picker -->
-        <th class="py-3 px-3 text-left">
-          <div class="flex items-center">
-            <span class="text-xs font-semibold mr-1">Start Date:</span>
-            <input
-              type="date"
-              id="startDate"
-              [(ngModel)]="startDate"
-              name="startDate"
-              (change)="onDateChange()"
-              required
-              class="w-29 px-1 py-1 text-sm text-gray-900 border rounded-lg focus:outline-none focus:ring focus:ring-blue-300"
-            />
-          </div>
-        </th>
+        <!-- Dark Blue Header -->
+        <thead class="bg-gray-700 text-white font-semibold uppercase text-sm">
+        <tr>
+          <th class="py-3 px-6 text-left">Product Type</th>
+          <th class="py-3 px-5 text-center">ID</th>
+          <th class="py-3 px-5 text-center">Count</th>
+          <th class="py-3 px-5 text-center">Price</th>
+          <th class="py-3 px-5 text-center">Revenue</th>
+        </tr>
+        </thead>
 
-        <!-- End Date Picker -->
-        <th class="py-3 px-3 text-left">
-          <div class="flex items-center">
-            <span class="text-xs font-semibold mr-1">End Date:</span>
-            <input
-              type="date"
-              id="endDate"
-              [(ngModel)]="endDate"
-              name="endDate"
-              (change)="onDateChange()"
-              required
-              class="w-29 px-1 py-1 text-sm text-gray-900 border rounded-lg focus:outline-none focus:ring focus:ring-blue-300"
-            />
-          </div>
-        </th>
+        <!-- Date Range Info -->
+        <thead *ngIf="filteredRevenueData && filteredRevenueData.length > 0">
+        <tr>
+          <td colspan="5" class="text-center text-blue-600 py-4">
+            Records from {{ startDate | date:'dd/MM/yyyy' }} to {{ endDate | date:'dd/MM/yyyy' }}
+          </td>
+        </tr>
+        </thead>
 
-        <th colspan="2" class="py-3 px-3 text-right">
-          <div class="flex items-center justify-end">
-            <span class="text-xs font-semibold mr-2">Search by ID:</span>
-            <input
-              type="text"
-              [(ngModel)]="searchId"
-              class="text-gray-900 rounded-lg px-3 py-2 focus:outline-none focus:ring focus:ring-blue-500 w-32 sm:w-48"
-              placeholder="Search by ID"
-            />
-          </div>
-        </th>
-      </tr>
-      </thead>
-
-      <thead *ngIf="filteredRevenueData && filteredRevenueData.length > 0">
-      <tr>
-        <td colspan="5" class="text-center text-blue-600 py-4">
-          Records from {{ startDate | date:'dd/MM/yyyy' }} to {{ endDate | date:'dd/MM/yyyy' }}
-        </td>
-      </tr>
-      </thead>
-
-      <thead class="bg-gray-700 text-white font-semibold uppercase text-sm mt-10">
-      <tr>
-        <th class="py-3 px-6 text-left">Product Type</th>
-        <th class="py-3 px-5 text-center">ID</th>
-        <th class="py-3 px-5 text-center">Num</th>
-        <th class="py-3 px-5 text-center">Price</th>
-        <th class="py-3 px-5 text-center">Revenue</th>
-      </tr>
-      </thead>
-
-      <tbody>
-      <tr *ngFor="let item of filteredRevenueData" class="hover:bg-blue-50 even:bg-gray-50">
-        <td class="py-3 px-5 text-gray-800 border-b border-gray-200">{{ item.type }}</td>
-        <td class="py-3 px-5 text-gray-800 border-b border-gray-200 text-center">{{ item.id }}</td>
-        <td class="py-3 px-5 text-gray-800 border-b border-gray-200 text-center">{{ item.number }}</td>
-        <td class="py-3 px-5 text-gray-800 border-b border-gray-200 text-center">{{ item.price }}</td>
-        <td class="py-3 px-5 text-gray-800 border-b border-gray-200 text-center">{{ item.revenue }}</td>
-      </tr>
-      </tbody>
-    </table>
+        <!-- Table Body -->
+        <tbody>
+        <tr *ngFor="let item of filteredRevenueData" class="hover:bg-blue-50 even:bg-gray-50">
+          <td class="py-3 px-5 text-gray-800 border-b border-gray-200">{{ item.type }}</td>
+          <td class="py-3 px-5 text-gray-800 border-b border-gray-200 text-center">{{ item.id }}</td>
+          <td class="py-3 px-5 text-gray-800 border-b border-gray-200 text-center">{{ item.number }}</td>
+          <td class="py-3 px-5 text-gray-800 border-b border-gray-200 text-center">{{ item.price }}</td>
+          <td class="py-3 px-5 text-gray-800 border-b border-gray-200 text-center">{{ item.revenue }}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>

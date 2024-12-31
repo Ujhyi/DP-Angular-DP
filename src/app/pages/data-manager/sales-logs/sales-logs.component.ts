@@ -59,9 +59,9 @@ export class SalesLogsComponent {
 
       return {
         id: item.id[0],
-        price: parseFloat(item.price[0]),
+        price: (item.price[0]),
         soldNum: parseInt(item.soldNum[0], 10),
-        revenue: parseFloat(item.revenue[0]),
+        revenue: (item.revenue[0]),
         sellDates
       };
     });

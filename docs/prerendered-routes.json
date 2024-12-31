@@ -1,0 +1,20 @@
+{
+  "routes": {
+    "/DP-Angular-DP": {},
+    "/DP-Angular-DP/change-password": {},
+    "/DP-Angular-DP/devices-add": {},
+    "/DP-Angular-DP/devices-comp": {},
+    "/DP-Angular-DP/devices-edit": {},
+    "/DP-Angular-DP/devices-management": {},
+    "/DP-Angular-DP/get-monitors": {},
+    "/DP-Angular-DP/get-projectors": {},
+    "/DP-Angular-DP/get-televisions": {},
+    "/DP-Angular-DP/home": {},
+    "/DP-Angular-DP/login": {},
+    "/DP-Angular-DP/number-of-devices": {},
+    "/DP-Angular-DP/number-of-devices-tech-inf": {},
+    "/DP-Angular-DP/register": {},
+    "/DP-Angular-DP/sales-logs": {},
+    "/DP-Angular-DP/sales-revenue": {}
+  }
+}

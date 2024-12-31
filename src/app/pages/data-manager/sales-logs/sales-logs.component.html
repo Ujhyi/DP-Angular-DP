@@ -33,9 +33,9 @@
         <tbody>
         <tr *ngFor="let log of getFilteredMonitorLogs()" class="hover:bg-blue-50 even:bg-gray-50">
           <td class="py-3 px-5 text-gray-800 border-b border-gray-200">{{ log.id }}</td>
-          <td class="py-3 px-5 text-gray-800 border-b border-gray-200 text-center">{{ log.price | currency }}</td>
+          <td class="py-3 px-5 text-gray-800 border-b border-gray-200 text-center">{{ log.price }}</td>
           <td class="py-3 px-5 text-gray-800 border-b border-gray-200 text-center">{{ log.soldNum }}</td>
-          <td class="py-3 px-5 text-gray-900 border-b border-gray-200 text-center">{{ log.revenue | currency }}</td>
+          <td class="py-3 px-5 text-gray-900 border-b border-gray-200 text-center">{{ log.revenue }}</td>
           <td class="py-3 px-5 text-gray-800 border-b border-gray-200">
             <ul>
               <li class="text-center" *ngFor="let date of log.sellDates">{{ date }}</li>
@@ -66,9 +66,9 @@
         <tbody>
         <tr *ngFor="let log of getFilteredTelevisionLogs()" class="hover:bg-blue-50 even:bg-gray-50">
           <td class="py-3 px-5 text-gray-800 border-b border-gray-200">{{ log.id }}</td>
-          <td class="py-3 px-5 text-gray-800 border-b border-gray-200 text-center">{{ log.price | currency }}</td>
+          <td class="py-3 px-5 text-gray-800 border-b border-gray-200 text-center">{{ log.price }}</td>
           <td class="py-3 px-5 text-gray-800 border-b border-gray-200 text-center">{{ log.soldNum }}</td>
-          <td class="py-3 px-5 text-gray-900 border-b border-gray-200 text-center">{{ log.revenue | currency }}</td>
+          <td class="py-3 px-5 text-gray-900 border-b border-gray-200 text-center">{{ log.revenue }}</td>
           <td class="py-3 px-5 text-gray-800 border-b border-gray-200">
             <ul>
               <li class="text-center" *ngFor="let date of log.sellDates">{{ date }}</li>
@@ -99,9 +99,9 @@
         <tbody>
         <tr *ngFor="let log of getFilteredProjectorLogs()" class="hover:bg-blue-50 even:bg-gray-50">
           <td class="py-3 px-5 text-gray-800 border-b border-gray-200">{{ log.id }}</td>
-          <td class="py-3 px-5 text-gray-800 border-b border-gray-200 text-center">{{ log.price | currency }}</td>
+          <td class="py-3 px-5 text-gray-800 border-b border-gray-200 text-center">{{ log.price }}</td>
           <td class="py-3 px-5 text-gray-800 border-b border-gray-200 text-center">{{ log.soldNum }}</td>
-          <td class="py-3 px-5 text-gray-900 border-b border-gray-200 text-center">{{ log.revenue | currency }}</td>
+          <td class="py-3 px-5 text-gray-900 border-b border-gray-200 text-center">{{ log.revenue }}</td>
           <td class="py-3 px-5 text-gray-800 border-b border-gray-200">
             <ul>
               <li class="text-center" *ngFor="let date of log.sellDates">{{ date }}</li>

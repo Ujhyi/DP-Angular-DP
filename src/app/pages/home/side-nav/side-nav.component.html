@@ -1,6 +1,6 @@
 <div class="h-screen fixed flex flex-col bg-gray-800 text-white" [ngClass]="{'w-16': isCollapsed, 'w-64': !isCollapsed}">
-  <div class="flex items-center justify-between h-20 bg-gray-900 p-2" [ngClass]="{'justify-center': isCollapsed}">
-    <h1 class="text-2xl px-5 font-bold" *ngIf="!isCollapsed">Menu</h1>
+  <div class="flex items-center justify-between h-20 fixed bg-gray-900 p-2" [ngClass]="{'justify-center w-16': isCollapsed, 'w-64': !isCollapsed}">
+    <h1 class="text-2xl px-5 font-bold" *ngIf="!isCollapsed">predprod</h1>
     <div class="flex-grow flex justify-center items-center" *ngIf="isCollapsed">
       <button (click)="toggleCollapse()" class="text-white focus:outline-none">
         <i class="fas" [ngClass]="{'fa-chevron-left': !isCollapsed, 'fa-chevron-right': isCollapsed}"></i>
@@ -10,7 +10,7 @@
       <i class="fas" [ngClass]="{'fa-chevron-left': !isCollapsed, 'fa-chevron-right': isCollapsed}"></i>
     </button>
   </div>
-  <nav class="flex flex-col flex-grow">
+  <nav class="flex flex-col flex-grow overflow-y-auto mt-20 ">
     <!-- Divider Line -->
     <hr class="border-t border-gray-700 my-2">
     <!-- Conditional Display for FUNCTIONS text -->
@@ -87,6 +87,15 @@
       <span *ngIf="!isCollapsed">Sales Logs</span>
     </a>
     <!-- Divider Line -->
+    <hr class="border-t border-gray-700 my-2">
+    <!-- Conditional Display for FUNCTIONS text -->
+    <p *ngIf="!isCollapsed" class="text-gray-400 text-xs px-4">HOME</p>
+    <p *ngIf="isCollapsed" class="text-gray-400 text-xs px-4 text-center">HOME</p>
+    <hr class="border-t border-gray-700 my-2">
+    <a routerLink="/home" class="py-3 px-4 flex items-center hover:bg-gray-700" [ngClass]="{'justify-center': isCollapsed}" (click)="closeMenu()">
+      <i class="bi bi-brightness-high-fill" [ngClass]="{'mr-3': !isCollapsed}"></i>
+      <span *ngIf="!isCollapsed">Home Page</span>
+    </a>
     <hr class="border-t border-gray-700 my-2">
   </nav>
 </div>
