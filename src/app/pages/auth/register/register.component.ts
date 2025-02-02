@@ -20,22 +20,30 @@ export class RegisterComponent {
 
   createUser() {
     this.masterSrv.createUser(this.username, this.password).subscribe(
-      (response) => {
+      (response: boolean) => {
+        console.log('Create user response:', response);
+
+        this.userCreatedSucceess = response;
+
         if (response) {
-          this.message = 'User created successfully.';
-          this.userCreatedSucceess = true;
+          this.message = 'User Created Successfully';
+          console.log('User successfully created!');
           this.username = '';
           this.password = '';
         } else {
-          this.message = 'Username already exists.';
-          this.userCreatedSucceess = false;
+          this.message = 'User Creation Failed';
+          console.log('User creation failed.');
           this.username = '';
           this.password = '';
         }
       },
       (error) => {
-        this.message = 'Error creating user/';
+        console.error('Create User Error:', error);
+        this.message = 'Error while creating user. Please try again later.';
+        this.username = '';
+        this.password = '';
+        this.userCreatedSucceess = false;
       }
-    )
+    );
   }
 }

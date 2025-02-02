@@ -65,6 +65,7 @@ export class DevicesComparisionComponent {
       RefreshRate: product.getElementsByTagName('Price')[0]?.textContent || '',
       DisplayTech: product.getElementsByTagName('DisplayTech')[0]?.textContent || '',
       MaxResolutions: product.getElementsByTagName('MaxResolutions')[0]?.textContent || '',
+      PixelResolutions: product.getElementsByTagName('PixelResolutions')[0]?.textContent || '',
 
       Output: product.getElementsByTagName('Output')[0]?.textContent || '',
       Speaker: product.getElementsByTagName('Speaker')[0]?.textContent || '',

@@ -24,22 +24,20 @@ export const routes: Routes = [
   // FUNCTIONALITY
   { path: 'home', component: HomeComponent, canActivate: [authGuard]},
   { path: 'get-monitors', component: GetMonitorsComponent, canActivate: [authGuard] },
-
-  { path: 'change-password', component: ChangePasswordComponent},
+  { path: 'change-password', component: ChangePasswordComponent },
   { path: 'login', component: LoginComponent},
-  { path: 'register', component: RegisterComponent},
-  { path: 'get-monitors', component: GetMonitorsComponent },
-  { path: 'get-projectors', component: GetProjectorsComponent},
-  { path: 'get-televisions', component: GetTelevisionsComponent},
-  { path: 'devices-add', component: DevicesAddComponent},
-  { path: 'devices-edit', component: DevicesEditComponent},
-  { path: 'devices-management', component: DevicesManagementComponent},
-  { path: 'devices-comp', component: DevicesComparisionComponent},
-
+  { path: 'register', component: RegisterComponent, canActivate: [authGuard] },
+  { path: 'get-monitors', component: GetMonitorsComponent, canActivate: [authGuard] },
+  { path: 'get-projectors', component: GetProjectorsComponent, canActivate: [authGuard]},
+  { path: 'get-televisions', component: GetTelevisionsComponent, canActivate: [authGuard]},
+  { path: 'devices-add', component: DevicesAddComponent, canActivate: [authGuard] },
+  { path: 'devices-edit', component: DevicesEditComponent, canActivate: [authGuard] },
+  { path: 'devices-management', component: DevicesManagementComponent, canActivate: [authGuard] },
+  { path: 'devices-comp', component: DevicesComparisionComponent, canActivate: [authGuard] },
   // DATA-MANAGER
-  { path: 'number-of-devices', component: NumberOfDevicesComponent},
-  { path: 'number-of-devices-tech-inf', component: NumberOfDevicesTechInformationComponent},
-  { path: 'sales-logs', component: SalesLogsComponent},
-  { path: 'sales-revenue', component: SalesRevenueComponent}
+  { path: 'number-of-devices', component: NumberOfDevicesComponent, canActivate: [authGuard] },
+  { path: 'number-of-devices-tech-inf', component: NumberOfDevicesTechInformationComponent, canActivate: [authGuard] },
+  { path: 'sales-logs', component: SalesLogsComponent, canActivate: [authGuard] },
+  { path: 'sales-revenue', component: SalesRevenueComponent, canActivate: [authGuard]}
 
 ];

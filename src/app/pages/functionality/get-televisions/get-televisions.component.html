@@ -9,6 +9,7 @@
     <div *ngFor="let television of televisions" class="bg-gray-200 rounded-lg shadow-md mb-4">
       <div class="bg-gray-200 p-4 rounded-lg"> <!-- Added rounded-lg here -->
         <h5 class="text-xl font-bold">{{ television.Brand }}</h5>
+        <p class="text-gray-700"><strong>Type:</strong> {{ television.productType }}</p>
         <p class="text-gray-700"><strong>ID:</strong> {{ television.id }}</p>
         <p class="text-gray-700"><strong>Model:</strong> {{ television.Model }}</p>
 
@@ -40,9 +41,9 @@
           <div [ngClass]="getAnimationClass('connectivity')" class="p-4" *ngIf="showConnectivity">
             <p class="text-gray-700"><strong>Outputs:</strong> {{ television.Output }}</p>
             <p class="text-gray-700"><strong>Speaker:</strong> {{ television.Speaker }}</p>
-            <p class="text-gray-700"><strong>Wireless Connections:</strong> {{ television.WirelessConnections }}</p>
+            <p class="text-gray-700"><strong>Wireless Connectivity:</strong> {{ television.WirelessConnections }}</p>
             <p class="text-gray-700"><strong>Bluetooth:</strong> {{ television.Bluetooth }}</p>
-            <p class="text-gray-700"><strong>Connections:</strong> {{ television.Connections }}</p>
+            <p class="text-gray-700"><strong>Connectivity:</strong> {{ television.Connections }}</p>
             <p class="text-gray-700"><strong>Smart:</strong> {{ television.Smart }}</p>
             <p class="text-gray-700"><strong>OS:</strong> {{ television.OS }}</p>
             <p class="text-gray-700"><strong>VESA:</strong> {{ television.VESA }}</p>

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {catchError, map, Observable} from 'rxjs';
+import {catchError, map, Observable, throwError} from 'rxjs';
 
 interface LoginResponse {
   d: boolean;
@@ -133,35 +133,102 @@ export class MasterService {
   private countDeviceByDateDetailTech2 = 'https://dp-asmx.com/MyASMXService/WebService.asmx/GetStockInformation_StartDateToEndDate_2';
   private salesRevenueByDateUrl = 'https://dp-asmx.com/MyASMXService/WebService.asmx/CalculateRevenueByDate';
   private editDeviceUrl = 'https://dp-asmx.com/MyASMXService/WebService.asmx/EditDevice';
-  private createUserUrl = 'https://dp-asmx.com/MyASMXService/WebService.asmx/Register';
-  private loginUserUrl = 'https://dp-asmx.com/MyASMXService/WebService.asmx/Login';
+  private createUserUrl = 'https://dp-asmx.com/MyASMXService/WebService.asmx/CreateUser';
+
   private changeUserPasswordUrl = 'https://dp-asmx.com/MyASMXService/WebService.asmx/ChangePassword';
 
+  private loginUserUrl = 'https://dp-asmx.com/MyASMXService/WebService.asmx/Login';
 
   constructor(private http: HttpClient) { }
 
+  login(username: string, password: string): Observable<boolean> {
+    const body = new URLSearchParams();
+    body.set('username', username);
+    body.set('password', password);
 
-  createUser(username: string, password: string): Observable<boolean> {
-    const body = { username, password };
-    return this.http.post<boolean>(this.createUserUrl, body);
-  }
-
-  login(username: string, password: string): Observable<any> {
-    return this.http.post<any>(this.loginUserUrl, { username, password }).pipe(
+    return this.http.post(this.loginUserUrl, body.toString(), {
+      headers: new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded'),
+      responseType: 'text'
+    }).pipe(
       map(response => {
-        console.log('Backend Response:', response); // Log the full response
-        return response;  // Ensure the response is passed correctly
-      }),
-      catchError((error) => {
-        console.error('Login Error:', error);
-        throw error;  // Handle error appropriately
+        console.log('Raw Response:', response);
+        const parser = new DOMParser();
+        const xmlDoc = parser.parseFromString(response, 'application/xml');
+        console.log('Parsed XML:', xmlDoc);
+        const booleanElement = xmlDoc.getElementsByTagNameNS('http://tempuri.org/', 'boolean')[0];
+        const message = booleanElement ? booleanElement.textContent?.trim() === 'true' : false;
+        console.log('Login response message:', message); // For debugging
+        return message;
       })
     );
   }
 
-  changePassword(username: string, oldPassword: string, newPassword: string): Observable<boolean> {
-    const body = { username, oldPassword, newPassword};
-    return this.http.post<boolean>(this.changeUserPasswordUrl, body);
+  createUser(username: string, password: string): Observable<boolean> {
+    const body = new URLSearchParams();
+    body.set('username', username);
+    body.set('password', password);
+
+    return this.http.post(this.createUserUrl, body.toString(), {
+      headers: new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded'),
+      responseType: 'text', // Treat the response as text (XML)
+    }).pipe(
+      map(response => {
+        console.log('Raw XML Response:', response); // Log the raw response for debugging
+
+        // Parse the XML response
+        const parser = new DOMParser();
+        const xmlDoc = parser.parseFromString(response, 'application/xml');
+
+        // Log the parsed XML document for debugging
+        console.log('Parsed XML:', xmlDoc);
+
+        // Extract the <boolean> element from the XML
+        const booleanElement = xmlDoc.getElementsByTagNameNS('http://tempuri.org/', 'boolean')[0];
+
+        // Check the text content of the <boolean> element
+        const success = booleanElement ? booleanElement.textContent === 'true' : false;
+
+        console.log('Create User Success:', success); // For debugging
+
+        return success; // Return the boolean indicating whether the user was successfully created
+      })
+    );
+  }
+
+
+  changePassword(username: string, oldPassword: string, newPassword: string): Observable<any> {
+    const body = new URLSearchParams();
+    body.set('username', username);  // Correctly set the values for the body
+    body.set('oldPassword', oldPassword);
+    body.set('newPassword', newPassword);
+
+    return this.http.post(this.changeUserPasswordUrl, body.toString(), {
+      headers: new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded'),
+      responseType: 'text' // This ensures that the response is treated as plain text, not JSON
+    }).pipe(
+      map(response => {
+        // Parse the XML response
+        const parser = new DOMParser();
+        const xmlDoc = parser.parseFromString(response, 'text/xml');
+
+        // Check if there are any parsing errors in the XML
+        const errorNode = xmlDoc.querySelector('parsererror');
+        if (errorNode) {
+          throw new Error('Error parsing XML response');
+        }
+
+        // Extract the message from the XML response
+        const message = xmlDoc.querySelector('Message')?.textContent;
+
+        // Return the parsed data (or any other processing you want)
+        return { message };
+      }),
+      catchError(error => {
+        // Handle any errors (e.g., network errors, parsing errors)
+        console.error('Error occurred while changing password', error);
+        return throwError('Error occurred while changing password');
+      })
+    );
   }
 
 

@@ -8,6 +8,7 @@
     <div *ngFor="let monitor of monitors" class="bg-gray-200 rounded-lg shadow-md mb-4">
       <div class="bg-gray-200 p-4 rounded-lg"> <!-- Added rounded-lg here -->
         <h5 class="text-xl font-bold">{{ monitor.Brand }}</h5>
+        <p class="text-gray-700"><strong>Type:</strong> {{ monitor.productType }}</p>
         <p class="text-gray-700"><strong>ID:</strong> {{ monitor.id }}</p>
         <p class="text-gray-700"><strong>Model:</strong> {{ monitor.Model }}</p>
 
@@ -41,9 +42,9 @@
           <div [ngClass]="getAnimationClass('connectivity')" class="p-4" *ngIf="showConnectivity">
             <p class="text-gray-700"><strong>Outputs:</strong> {{ monitor.Output }}</p>
             <p class="text-gray-700"><strong>Speaker:</strong> {{ monitor.Speaker }}</p>
-            <p class="text-gray-700"><strong>Wireless Connections:</strong> {{ monitor.WirelessConnections }}</p>
+            <p class="text-gray-700"><strong>Wireless Connectivity:</strong> {{ monitor.WirelessConnections }}</p>
             <p class="text-gray-700"><strong>Bluetooth:</strong> {{ monitor.Bluetooth }}</p>
-            <p class="text-gray-700"><strong>Connections:</strong> {{ monitor.Connections }}</p>
+            <p class="text-gray-700"><strong>Connectivity:</strong> {{ monitor.Connections }}</p>
             <p class="text-gray-700"><strong>Smart:</strong> {{ monitor.Smart }}</p>
             <p class="text-gray-700"><strong>OS:</strong> {{ monitor.OS }}</p>
             <p class="text-gray-700"><strong>VESA:</strong> {{ monitor.VESA }}</p>
